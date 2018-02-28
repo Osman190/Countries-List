@@ -26,27 +26,31 @@ let countriesList = [];
     .then(countries =>{
         countriesList = countries;
         overview(countriesList);
+        console.log(countriesList)
     })
   }
-
   
   function overview(countriesList) {
     let html = '';
     let i = 1
     let tableBody = document.getElementById('tableBody')
     let counter = 0;
-    
      countriesList.forEach(country => {
       counter += country.population
      })
-
+       if (window.location.search.substr(1) === "sort=asc") {
+         countriesList.sort((a, b) => b.population - a.population)
+       } else if (window.location.search.substr(1) === "sort=desc") {
+         countriesList.sort((a, b) => a.population - b.population)
+       }
      countriesList.forEach(country => {
        html += `<tr>
               <td>${i}</td>
               <td width=20%>${country.name}<td>
               <td width=20%><img src='${country.flag}' width=30%</td>
               <td width=20%>${country.population}</td>
-              <td width=20%>${((country.population /counter)  * 100).toFixed(3)} %</td>
+              <td width=20%
+              <b>${((country.population /counter) * 100).toFixed(5)} %</td>
               </tr>`;
               i++
      })

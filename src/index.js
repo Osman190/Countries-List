@@ -54,6 +54,7 @@ let countriesList = [];
               </tr>`;
               i++
      })
+     
      tableBody.innerHTML = html;
    }
 

@@ -165,7 +165,7 @@ document.getElementById('tableBody').addEventListener('click', function (e) {
   const { target } = e;
   const coord = target.getAttribute('data-id');
   const final = coord.split(',');
-  initMap(Number(final[0]), Number(final[1]), 24);
+  initMap(Number(final[0]), Number(final[1]), 6);
   console.log(final);
 })
 
